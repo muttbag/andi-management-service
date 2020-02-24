@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package tutorial;
+
+option java_package = "com.dekker.andimanagementservice";
+
+service AndiService {
+  rpc GetAndi (GetAndiRequest) returns (Andi){}
+  rpc CreateAndi (CreateAndiRequest) returns (CreateAndiResponse){}
+}
+
+message GetAndiRequest {
+  int32 id = 1;
+}
+
+message Andi {
+  string first_name = 1;
+  string second_name = 2;
+  string role = 3;
+}
+
+message CreateAndiRequest {
+  string first_name = 1;
+  string second_name = 2;
+  string role = 3;
+}
+
+message CreateAndiResponse {
+  bool success = 1;
+}
